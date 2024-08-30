@@ -3,9 +3,9 @@ import matplotlib.pyplot
 import numpy
 import math
 
-bunny_image_path="images/bunny.jpg"
+image_path="images/japan.jpg"
 
-bunny_img=cv2.imread(bunny_image_path)
+image=cv2.imread(image_path)
 
 point1=None
 point2=None
@@ -21,7 +21,7 @@ def draw_circle(event,x,y,flag,param):
             print(point2)
     if point1 is not None and point2 is not None :
         c = ( int( ( point2[0] + point1[0] ) / 2 ) ,int( ( point2[1] + point1[1] ) / 2 ))
-        cv2.circle( bunny_img ,c ,int( c[0] - min( point2[0] ,point1[0] ) ) ,(0,255,0) ,2 )
+        cv2.circle( image ,c ,int( c[0] - min( point2[0] ,point1[0] ) ) ,(0,255,0) ,2 )
 
 
 cv2.namedWindow('image')
@@ -29,7 +29,7 @@ cv2.setMouseCallback("image",draw_circle)
 
 
 while True:
-    cv2.imshow("image",bunny_img)
+    cv2.imshow("image",image)
 
     key = cv2.waitKey(1)
     if key == 27:
